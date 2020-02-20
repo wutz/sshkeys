@@ -209,7 +209,7 @@ func parseOpenSSHPrivateKey(data []byte, passphrase []byte) (interface{}, error)
 
 		pk := ed25519.PrivateKey(make([]byte, ed25519.PrivateKeySize))
 		copy(pk, key.Priv)
-		return pk, nil
+		return &pk, nil
 	default:
 		return nil, errors.New("sshkeys: unhandled key type")
 	}

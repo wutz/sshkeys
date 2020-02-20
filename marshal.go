@@ -205,7 +205,7 @@ func marshalOpenssh(pk interface{}, opts *MarshalOptions) ([]byte, error) {
 		}
 		out.PubKey = string(publicKey.Marshal())
 
-	case ed25519.PrivateKey:
+	case *ed25519.PrivateKey:
 		k := opensshED25519{
 			Pub:  key.Public().(ed25519.PublicKey),
 			Priv: key,
